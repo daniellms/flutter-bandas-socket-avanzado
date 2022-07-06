@@ -11,11 +11,16 @@ class Banda {
      this.votos,
   });
   
-factory Banda.frommMap(Map<String, dynamic> obj) => 
+factory Banda.fromMap(Map<String, dynamic> obj) => 
   Banda(
-    id:obj['id'],
-    nombre: obj['name'],
-    votos: obj['votos']
+        //original 
+    // id:obj['id'],
+    // nombre: obj['nombre'],
+    // votos: obj['votos']
+    //con validacion, lo mismo de arriba pero con validacion
+    id    :  obj.containsKey('id') ? obj['id'] : 'sin-id',
+    nombre:  obj.containsKey('nombre') ? obj['nombre'] : 'sin-nombre',
+    votos :  obj.containsKey('votos') ? obj['votos'] : 'sin-votos'
   );
  
 
